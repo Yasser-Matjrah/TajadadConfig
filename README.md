@@ -403,7 +403,7 @@ The `homeSections` key represents an array of tabbed sections on the home screen
 
 The "Separator" section is used to add a visual separator within a tab of the home screen.
 
-- **`type`**: The type of section, which is "separator."
+- **`type`**: The type of section, which is "separator"
 
 - **`stringKey`**: A string identifier for the separator section's title. You can set the value for different languages using the `language.variableStrings` object.
 
@@ -432,7 +432,7 @@ Example Usage:
 
 The "Featured Categories" section is used to display a set of featured categories within a tab on the home screen.
 
-- **`type`**: The type of section, which is "featured_categories."
+- **`type`**: The type of section, which is "featured_categories"
 
 - **`style`**: The style of the featured categories. You can choose from different styles, including "square," "circle," "rectlight," or "rectdark."
 
@@ -475,7 +475,7 @@ Examples Usage:
 
 The "Popup" section is used to display a popup image in a modal when the app starts up, and a specific tab on the home screen is selected. This popup can be linked to various actions or content.
 
-- **`type`**: The type of section, which is "popup."
+- **`type`**: The type of section, which is "popup"
 
 - **`id`**: An identifier used in preventing the display of the same popup locally. This value helps ensure that the same popup is not shown repeatedly to users.
 
@@ -511,6 +511,204 @@ Example Usage:
 }
 ```
 
+### Timer Section
+
+The "Timer" section is used to display a countdown timer for a sale event. Users are encouraged to take action before the timer expires.
+
+- **`type`**: The type of section, which is "timer"
+
+- **`datetime`**: The date and time when the timer should end, in the format "YYYY-MM-DD HH:mm." Users are encouraged to take action before this time expires.
+
+- **`titleStringKey`**: A string identifier for the title of the timer. This string identifier can be used to retrieve the localized text for the timer's title. It ensures that the text is displayed in the user's preferred language.
+
+- **`navTitleStringKey`**: A string identifier for the navigation title related to the timer. Like the titleStringKey, this identifier is used to retrieve localized text.
+
+- **`image`**: The URL of the image associated with the timer. This image is typically used to visually represent the sale event.
+
+- **`imageWidthRatio`**: The width ratio of the timer image, allowing you to control the image's aspect ratio.
+
+- **`imageHeightRatio`**: The height ratio of the timer image, enabling you to control the image's aspect ratio.
+
+- **`colors`**: Define the color scheme for the timer, including background colors, text colors, and more.
+
+- **`link_type`**: The type of action or content that the timer is linked to. Possible values include:
+  - "home": To load a custom screen (link value expected to be a full home configuration).
+  - "manufacturer": To load the manufacturer products screen (link value expected to be the `manufacturer_id`).
+  - "product": To load the product screen (link value expected to be the `product_id`).
+  - "list": To load a product listing screen (link value expected to be a query object).
+  - "category": To load products listing in subcategories (link value expected to be `categoryId`).
+  - "internal": To load an in-app web view (link value expected to be a URL).
+  - "external": To load a browser (link value expected to be a URL).
+  - "copy": To copy something to the clipboard (e.g., "coupon text").
+
+- **`link_value`**: The specific value or identifier associated with the `link_type`, depending on the selected type.
+
+Example Usage:
+
+```json
+{
+  "type": "timer",
+  "datetime": "2023-08-25 23:25",
+  "titleStringKey": "ramadanOffer",
+  "navTitleStringKey": "ramadanOfferTitle",
+  "image": "https://rahatystore.matjrah.store/images/1419/image/catalog/2023/web%20banners/1672664683-1.gif",
+  "imageWidthRatio": 0.9,
+  "imageHeightRatio": 0.5,
+  "colors": {
+    "background": "#451458",
+    "time_text": "#00207c",
+    "title": {
+      "text": "#00207c",
+      "background": "#451458"
+    },
+    "subtitle": {
+      "text": "#00207c",
+      "background": "#451458"
+    }
+  },
+  "link_type": "home",
+  "link_value": []
+}
+```
+
+### Home Announcer Section
+
+The "Home Announcer" section is used to display an announcement message on the home screen, providing important information or updates to users.
+
+- **`type`**: The type of section, which is "announce."
+
+- **`stringKey`**: A string representing the key for the associated text content. This key should have corresponding values in the `language.variableStrings` object for language localization.
+
+- **`iconKey`**: A unique key that represents the icon associated with the announcement. You can use this key to fetch the icon's URL from the "rImages" object.
+
+- **`colors`**: Define the color scheme for the announcer, including background colors, text colors, and icon tint.
+
+- **`title`**: The title of the screen, web view, or product listing that is navigated to when the user interacts with the announcer.
+
+- **`link_type`**: The type of action or content that the announcer is linked to. Specify one of the following values:
+  - "home": To load a custom screen (link value expected to be a full home configuration).
+  - "manufacturer": To load the manufacturer products screen (link value expected to be the `manufacturer_id`).
+  - "product": To load the product screen (link value expected to be the `product_id`).
+  - "list": To load a product listing screen (link value expected to be a query object).
+  - "category": To load products listing in subcategories (link value expected to be `categoryId`).
+  - "internal": To load an in-app web view (link value expected to be a URL).
+  - "external": To load a browser (link value expected to be a URL).
+  - "copy": To copy something to the clipboard (e.g., "coupon text").
+
+- **`link_value`**: The specific value or identifier associated with the `link_type`, depending on the selected type.
+
+Example Usage:
+
+```json
+{
+  "type": "announce",
+  "stringKey": "announceMessage",
+  "iconKey": "heart",
+  "colors": {
+    "background": "green",
+    "text": "cyan",
+    "iconTint": "blue"
+  },
+  "title": "123",
+  "link_type": "home",
+  "link_value": []
+}
+```
+
+### Product Section
+
+The "Product Section" is a versatile section designed to showcase a collection of products based on customizable criteria.
+
+- **`stringKey`**: A string representing the key for the associated text content. This key should have corresponding values in the `language.variableStrings` object for language localization.
+
+- **`iconKey`**: A unique key that represents the icon associated with the product section. You can use this key to fetch the icon's URL from the "rImages" object.
+
+- **`style`**: The style of the product section, which can be one of the following:
+  - "basic": A basic style.
+  - "top": A top-aligned style.
+  - "start": A start-aligned style.
+  - "center": A center-aligned style.
+
+- **`colors`**: Define the color scheme for the product section, including primary and secondary colors.
+
+- **`isGrid`**: A boolean value to determine whether the product display is in a grid format (true) or not (false).
+
+- **`limit`**: The maximum number of products to display in the section.
+
+- **`query`**: A query object used to customize the criteria for product selection. The `query` object can include filters, sorting options, and other parameters.
+
+Example Usage:
+
+```json
+{
+  "stringKey": "lastPiece",
+  "iconKey": "star",
+  "style": "center",
+  "colors": {
+    "primary": "purple",
+    "secondary": "purple"
+  },
+  "isGrid": true,
+  "limit": 10,
+  "query": {
+    // Customize the query object to filter, sort, and select products as needed.
+  }
+}
+```
+
+### Banner Section
+
+The "Banner Section" is designed to display a collection of banners, which can be used for various promotional purposes.
+
+- **`banner_id`**: A unique identifier for the banner section.
+
+- **`displayAs`**: The display style of the banners, which can be one of the following:
+  - "carousel": Banners are displayed in a carousel.
+  - "row": Banners are displayed in a row.
+  - "scroll": Banners are displayed with horizontal scrolling.
+
+- **`data`**: Contains an array of banner objects with details for each banner. Each banner includes the following properties:
+  - **`title`**: The title of the banner.
+  - **`link_type`**: The type of link associated with the banner (e.g., "product," "category," "external," etc.).
+  - **`link_value`**: The value associated with the link type (e.g., product ID, category ID, URL, etc.).
+  - **`image`**: The URL of the banner image.
+
+- **`showSwiperIndex`**: A boolean value indicating whether to display the index of the current banner in a swiper component.
+
+- **`ratio`**: The height ratio of the banner. A value of 1 represents a square banner, while other values adjust the banner's height accordingly.
+
+- **`resizeMode`**: The image resizing mode, which can be one of the following:
+  - "cover": The image covers the entire banner area, possibly cropping parts.
+  - "contain": The image fits within the banner area without cropping.
+
+- **`widthRatio`**: The width ratio of the banner, which determines the width of the banner as a percentage of the screen width.
+
+- **`marginVertical`**: The vertical margin or spacing around the banner.
+
+Example Usage:
+
+```json
+{
+  "banner_id": "static",
+  "displayAs": "row",
+  "data": {
+    "banners": [
+      {
+        "title": "",
+        "link_type": "",
+        "link_value": "",
+        "image": "https://matjrah-app.store/images/1233/image/cache/catalog/1667402811-BA09956D-5A25-4167-90ED-856D1932EF5C-max-375.jpeg"
+      },
+      // Additional banners here...
+    ],
+    "showSwiperIndex": true,
+    "ratio": 1,
+  },
+  "resizeMode": "contain",
+  "widthRatio": 0.95,
+  "marginVertical": 12
+}
+```
 
 ## `infoData`
 
