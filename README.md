@@ -681,6 +681,8 @@ The "Banner Section" is designed to display a collection of banners, which can b
   - "cover": The image covers the entire banner area, possibly cropping parts.
   - "contain": The image fits within the banner area without cropping.
 
+- **`justifyContent`**: The horizontal alignment of the banner within its container. It can be set to "center" to center-align the banner horizontally.
+
 - **`widthRatio`**: The width ratio of the banner, which determines the width of the banner as a percentage of the screen width.
 
 - **`marginVertical`**: The vertical margin or spacing around the banner.
@@ -705,10 +707,88 @@ Example Usage:
     "ratio": 1,
   },
   "resizeMode": "contain",
+  "justifyContent": "center",
   "widthRatio": 0.95,
   "marginVertical": 12
 }
 ```
+
+### Story Section
+
+The "story" section is used to define a collection of images or videos presented in a story format within your app. This section is commonly used for promotional content, announcements, or engaging multimedia presentations.
+
+#### Structure
+
+- **type**: Specifies that this is a "story" section.
+- **data**: An array of story items, each representing a separate story.
+  - **id**: A unique identifier for the story.
+  - **image**: The cover image for the story, typically displayed as a thumbnail or introductory image.
+  - **name**: A name or title for the story, which may provide context or a brief description.
+  - **duration**: The default duration (in seconds) for all stories inside this section. This duration determines how long each image or video is displayed in the story.
+  - **is_special**: Indicates if the story is special or featured. Special stories might be highlighted or treated differently within the app.
+  - **images**: An array of images or videos within the story, creating a sequence of content.
+    - **image**: URL for an image in the story, which is typically a static image.
+    - **video**: URL for a video in the story, allowing the inclusion of multimedia elements.
+    - **duration**: Custom duration (in seconds) for the individual media item. This can override the default duration for specific images or videos.
+    - **link_type**: Specifies the type of link for the image or video, such as "product," "internal," "external," or "copy."
+    - **link_value**: Provides the value associated with the link type, which might be a product ID, a URL, or other relevant information.
+
+Example Usage:
+
+```json
+{
+  "type": "story",
+  "data": [
+    {
+      "id": 1,
+      "image": "https://example.com/story1_cover.jpg",
+      "name": "Story 1",
+      "duration": 10,
+      "is_special": true,
+      "images": [
+        {
+          "image": "https://example.com/story1_image1.jpg",
+          "duration": 15,
+          "link_type": "product",
+          "link_value": 9029
+        },
+        {
+          "video": "https://example.com/story1_video1.mp4",
+          "duration": 30,
+          "link_type": "internal",
+          "link_value": "https://example.com/internal-page"
+        },
+        {
+          "image": "https://example.com/story1_image2.jpg",
+          "duration": 8,
+          "link_type": "external",
+          "link_value": "https://example.com/external-link"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "https://example.com/story2_cover.jpg",
+      "name": "Story 2",
+      "duration": 12,
+      "images": [
+        {
+          "image": "https://example.com/story2_image1.jpg",
+          "link_type": "product",
+          "link_value": 9030
+        },
+        {
+          "image": "https://example.com/story2_image2.jpg",
+          "link_type": "copy",
+          "link_value": "ABC123"
+        }
+      ]
+    }
+  ]
+}
+
+```
+
 
 ## `infoData`
 
