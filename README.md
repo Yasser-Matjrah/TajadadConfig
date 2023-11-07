@@ -4,22 +4,22 @@ This documentation provides details about the JSON configuration for your applic
 
 ## Table of Contents
 
-1. [oneSignal](##onesignal)
-2. [currency](##currency)
-3. [imageDimension](##imagedimension)
-4. [imageQualityFactors](##imagequalityfactors)
-5. [privacyId](##privacyid)
-6. [spinner](##spinner)
-7. [quickActions](##quickactions)
-8. [features](##features)
-9. [layouts](##layouts)
-10. [language](##language)
-11. [homeSections](##homesections)
-12. [infoData](##infodata)
-13. [colorsPallet](##colorspallet)
-14. [rImages](##rimages)
-15. [zCountriesOTP](##zcountriesotp)
-16. [zImagesQuality](##zimagesquality)
+1. [oneSignal](#onesignal)
+2. [currency](#currency)
+3. [imageDimension](#imagedimension)
+4. [imageQualityFactors](#imagequalityfactors)
+5. [privacyId](#privacyid)
+6. [spinner](#spinner)
+7. [quickActions](#quickactions)
+8. [features](#features)
+9. [layouts](#layouts)
+10. [language](#language)
+11. [homeSections](#homesections)
+12. [infoData](#infodata)
+13. [colorsPallet](#colorspallet)
+14. [rImages](#rimages)
+15. [zCountriesOTP](#zcountriesotp)
+16. [zImagesQuality](#zimagesquality)
 
 ## `oneSignal`
 
