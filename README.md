@@ -71,13 +71,13 @@ Please note that these quality factors are primarily related to Matjrah API requ
 
 ### Factors
 
-- **`cart`**: A factor affecting the image quality for cart-related images.
-- **`banners`**: A factor affecting the image quality for banners.
-- **`brands`**: A factor affecting the image quality for brand-related images.
-- **`categories`**: A factor affecting the image quality for category-related images.
-- **`productCard`**: A factor affecting the image quality for product card images.
-- **`productDetails`**: A factor affecting the image quality for product details images.
-- **`featuredCategories`**: A factor affecting the image quality for featured category images.
+-   **`cart`**: A factor affecting the image quality for cart-related images.
+-   **`banners`**: A factor affecting the image quality for banners.
+-   **`brands`**: A factor affecting the image quality for brand-related images.
+-   **`categories`**: A factor affecting the image quality for category-related images.
+-   **`productCard`**: A factor affecting the image quality for product card images.
+-   **`productDetails`**: A factor affecting the image quality for product details images.
+-   **`featuredCategories`**: A factor affecting the image quality for featured category images.
 
 ### Example Usage
 
@@ -160,10 +160,9 @@ Each object within the `quickActions` array has the following sub-elements:
     -   `product`
     -   `query`
 
-- **`titleStringKey`**: A string identifier for the title of the quick action. This string identifier can be set in the `language.variableStrings` object for different languages, allowing you to customize the title text based on the selected language.
+-   **`titleStringKey`**: A string identifier for the title of the quick action. This string identifier can be set in the `language.variableStrings` object for different languages, allowing you to customize the title text based on the selected language.
 
-- **`subtitleStringKey`**: A string identifier for the subtitle of the quick action. Similar to the `titleStringKey`, this string identifier can be set in the `language.variableStrings` object for different languages, enabling you to customize the subtitle text based on the selected language.
-
+-   **`subtitleStringKey`**: A string identifier for the subtitle of the quick action. Similar to the `titleStringKey`, this string identifier can be set in the `language.variableStrings` object for different languages, enabling you to customize the subtitle text based on the selected language.
 
 ### Example Usage
 
@@ -336,13 +335,14 @@ The `language` key allows you to configure language-related settings and provide
 
 ### Configuration Settings
 
-- **`default`**: Specifies the default language for the application. It can be set to either:
-  - `ar`: Arabic
-  - `en`: English
+-   **`default`**: Specifies the default language for the application. It can be set to either:
 
-- **`changeable`**: A boolean value that determines whether users can change the application's language. When set to `true`, users can switch between the configured languages. When set to `false`, the application remains in the default language.
+    -   `ar`: Arabic
+    -   `en`: English
 
-- **`variableStrings`**: An object that holds language-specific strings for different parts of the application.
+-   **`changeable`**: A boolean value that determines whether users can change the application's language. When set to `true`, users can switch between the configured languages. When set to `false`, the application remains in the default language.
+
+-   **`variableStrings`**: An object that holds language-specific strings for different parts of the application.
 
 > Note: Any object within the configuration, regardless of its location, that includes a `stringKey` key and values, should have corresponding values in the `language.variableStrings` object. For example, if a configuration object has a `titleStringKey` with a value of "latest," ensure that both `language.variableStrings.en.latest` and `language.variableStrings.ar.latest` contain the corresponding string values. This allows the application to read the string values from the `variableStrings` based on the selected language.
 
@@ -369,16 +369,15 @@ The `language` key allows you to configure language-related settings and provide
 }
 ```
 
-
 ## `homeSections`
 
 The `homeSections` key represents an array of tabbed sections on the home screen, each with its own title and content sections.
 
-- Each tab is defined as an object with the following properties:
+-   Each tab is defined as an object with the following properties:
 
-  - **`stringKey`**: A string identifier for the tab's title. You can set the value for different languages using the `language.variableStrings` object.
+    -   **`stringKey`**: A string identifier for the tab's title. You can set the value for different languages using the `language.variableStrings` object.
 
-  - **`sections`**: An array of elements that make up the content of the tab. These elements can include various section types, each with its own configuration.
+    -   **`sections`**: An array of elements that make up the content of the tab. These elements can include various section types, each with its own configuration.
 
 ### Example Usage
 
@@ -403,28 +402,28 @@ The `homeSections` key represents an array of tabbed sections on the home screen
 
 The "Separator" section is used to add a visual separator within a tab of the home screen.
 
-- **`type`**: The type of section, which is "separator"
+-   **`type`**: The type of section, which is "separator"
 
-- **`stringKey`**: A string identifier for the separator section's title. You can set the value for different languages using the `language.variableStrings` object.
+-   **`stringKey`**: A string identifier for the separator section's title. You can set the value for different languages using the `language.variableStrings` object.
 
-- **`iconKey`**: A string identifier for the icon used in the separator section. You can reference icons from the `rImages` object.
+-   **`iconKey`**: A string identifier for the icon used in the separator section. You can reference icons from the `rImages` object.
 
-- **`style`**: The style of the separator. You can customize its alignment, and the available options are "basic," "top," "start," or "center."
+-   **`style`**: The style of the separator. You can customize its alignment, and the available options are "basic," "top," "start," or "center."
 
-- **`colors`**: A set of colors for the separator. Customize the primary and secondary colors, using either named colors or hash values.
+-   **`colors`**: A set of colors for the separator. Customize the primary and secondary colors, using either named colors or hash values.
 
 Example Usage:
 
 ```json
 {
-  "type": "separator",
-  "stringKey": "separatorTitleStringKey",
-  "iconKey": "separatorIcon",
-  "style": "center",
-  "colors": {
-    "primary": "blue", // or "#0000FF"
-    "secondary": "green" // or "#008000"
-  }
+	"type": "separator",
+	"stringKey": "separatorTitleStringKey",
+	"iconKey": "separatorIcon",
+	"style": "center",
+	"colors": {
+		"primary": "blue", // or "#0000FF"
+		"secondary": "green" // or "#008000"
+	}
 }
 ```
 
@@ -432,19 +431,19 @@ Example Usage:
 
 The "Featured Categories" section is used to display a set of featured categories within a tab on the home screen.
 
-- **`type`**: The type of section, which is "featured_categories"
+-   **`type`**: The type of section, which is "featured_categories"
 
-- **`style`**: The style of the featured categories. You can choose from different styles, including "square," "circle," "rectlight," or "rectdark."
+-   **`style`**: The style of the featured categories. You can choose from different styles, including "square," "circle," "rectlight," or "rectdark."
 
-- **`direction`**: The direction in which the featured categories are displayed. You can set it as "column" or "row" to control the layout.
+-   **`direction`**: The direction in which the featured categories are displayed. You can set it as "column" or "row" to control the layout.
 
-- **Data Source**: Choose one of the following options to define the source of featured categories:
+-   **Data Source**: Choose one of the following options to define the source of featured categories:
 
-  - **`parent`**: Use the `parent` property to show the children of a specific parent category identified by its ID.
+    -   **`parent`**: Use the `parent` property to show the children of a specific parent category identified by its ID.
 
-  - **`ids`**: Provide an array of category IDs to specify which categories should be displayed as featured.
+    -   **`ids`**: Provide an array of category IDs to specify which categories should be displayed as featured.
 
-  - **`level`**: Set the `level` property to determine the level of categories to be shown as featured.
+    -   **`level`**: Set the `level` property to determine the level of categories to be shown as featured.
 
 Examples Usage:
 
@@ -475,39 +474,40 @@ Examples Usage:
 
 The "Popup" section is used to display a popup image in a modal when the app starts up, and a specific tab on the home screen is selected. This popup can be linked to various actions or content.
 
-- **`type`**: The type of section, which is "popup"
+-   **`type`**: The type of section, which is "popup"
 
-- **`id`**: An identifier used in preventing the display of the same popup locally. This value helps ensure that the same popup is not shown repeatedly to users.
+-   **`id`**: An identifier used in preventing the display of the same popup locally. This value helps ensure that the same popup is not shown repeatedly to users.
 
-- **`hours`**: The number of hours to hide the popup for after it is shown. Users will not see the popup again within this time frame.
+-   **`hours`**: The number of hours to hide the popup for after it is shown. Users will not see the popup again within this time frame.
 
-- **`imageHeightRatio`**: The height ratio of the popup image. A value of 1 indicates a square image. Adjust this value to control the image's aspect ratio.
+-   **`imageHeightRatio`**: The height ratio of the popup image. A value of 1 indicates a square image. Adjust this value to control the image's aspect ratio.
 
-- **`image`**: The URL of the popup image that will be displayed in the modal.
+-   **`image`**: The URL of the popup image that will be displayed in the modal.
 
-- **`link_type`**: The type of action or content that the popup is linked to. Possible values include:
-  - "home": To load a custom screen (link value expected to be a full home configuration).
-  - "manufacturer": To load the manufacturer products screen (link value expected to be the `manufacturer_id`).
-  - "product": To load the product screen (link value expected to be the `product_id`).
-  - "list": To load a product listing screen (link value expected to be a query object).
-  - "category": To load products listing in subcategories (link value expected to be `categoryId`).
-  - "internal": To load an in-app web view (link value expected to be a URL).
-  - "external": To load a browser (link value expected to be a URL).
-  - "copy": To copy something to the clipboard (e.g., "coupon text").
+-   **`link_type`**: The type of action or content that the popup is linked to. Possible values include:
 
-- **`link_value`**: The specific value or identifier associated with the `link_type`, depending on the selected type.
+    -   "home": To load a custom screen (link value expected to be a full home configuration).
+    -   "manufacturer": To load the manufacturer products screen (link value expected to be the `manufacturer_id`).
+    -   "product": To load the product screen (link value expected to be the `product_id`).
+    -   "list": To load a product listing screen (link value expected to be a query object).
+    -   "category": To load products listing in subcategories (link value expected to be `categoryId`).
+    -   "internal": To load an in-app web view (link value expected to be a URL).
+    -   "external": To load a browser (link value expected to be a URL).
+    -   "copy": To copy something to the clipboard (e.g., "coupon text").
+
+-   **`link_value`**: The specific value or identifier associated with the `link_type`, depending on the selected type.
 
 Example Usage:
 
 ```json
 {
-  "type": "popup",
-  "id": 234,
-  "hours": 24,
-  "imageHeightRatio": 0.75,
-  "image": "https://assets.matjrah.store/images/1339/image/cache/catalog/1677055847-mBNlFGQZaRhXmQKGJHFHfWMAa7TWhOrvnBN6KmbN-max-828.jpg",
-  "link_type": "product",
-  "link_value": 9029
+	"type": "popup",
+	"id": 234,
+	"hours": 24,
+	"imageHeightRatio": 0.75,
+	"image": "https://assets.matjrah.store/images/1339/image/cache/catalog/1677055847-mBNlFGQZaRhXmQKGJHFHfWMAa7TWhOrvnBN6KmbN-max-828.jpg",
+	"link_type": "product",
+	"link_value": 9029
 }
 ```
 
@@ -515,59 +515,60 @@ Example Usage:
 
 The "Timer" section is used to display a countdown timer for a sale event. Users are encouraged to take action before the timer expires.
 
-- **`type`**: The type of section, which is "timer"
+-   **`type`**: The type of section, which is "timer"
 
-- **`datetime`**: The date and time when the timer should end, in the format "YYYY-MM-DD HH:mm." Users are encouraged to take action before this time expires.
+-   **`datetime`**: The date and time when the timer should end, in the format "YYYY-MM-DD HH:mm." Users are encouraged to take action before this time expires.
 
-- **`titleStringKey`**: A string identifier for the title of the timer. This string identifier can be used to retrieve the localized text for the timer's title. It ensures that the text is displayed in the user's preferred language.
+-   **`titleStringKey`**: A string identifier for the title of the timer. This string identifier can be used to retrieve the localized text for the timer's title. It ensures that the text is displayed in the user's preferred language.
 
-- **`navTitleStringKey`**: A string identifier for the navigation title related to the timer. Like the titleStringKey, this identifier is used to retrieve localized text.
+-   **`navTitleStringKey`**: A string identifier for the navigation title related to the timer. Like the titleStringKey, this identifier is used to retrieve localized text.
 
-- **`image`**: The URL of the image associated with the timer. This image is typically used to visually represent the sale event.
+-   **`image`**: The URL of the image associated with the timer. This image is typically used to visually represent the sale event.
 
-- **`imageWidthRatio`**: The width ratio of the timer image, allowing you to control the image's aspect ratio.
+-   **`imageWidthRatio`**: The width ratio of the timer image, allowing you to control the image's aspect ratio.
 
-- **`imageHeightRatio`**: The height ratio of the timer image, enabling you to control the image's aspect ratio.
+-   **`imageHeightRatio`**: The height ratio of the timer image, enabling you to control the image's aspect ratio.
 
-- **`colors`**: Define the color scheme for the timer, including background colors, text colors, and more.
+-   **`colors`**: Define the color scheme for the timer, including background colors, text colors, and more.
 
-- **`link_type`**: The type of action or content that the timer is linked to. Possible values include:
-  - "home": To load a custom screen (link value expected to be a full home configuration).
-  - "manufacturer": To load the manufacturer products screen (link value expected to be the `manufacturer_id`).
-  - "product": To load the product screen (link value expected to be the `product_id`).
-  - "list": To load a product listing screen (link value expected to be a query object).
-  - "category": To load products listing in subcategories (link value expected to be `categoryId`).
-  - "internal": To load an in-app web view (link value expected to be a URL).
-  - "external": To load a browser (link value expected to be a URL).
-  - "copy": To copy something to the clipboard (e.g., "coupon text").
+-   **`link_type`**: The type of action or content that the timer is linked to. Possible values include:
 
-- **`link_value`**: The specific value or identifier associated with the `link_type`, depending on the selected type.
+    -   "home": To load a custom screen (link value expected to be a full home configuration).
+    -   "manufacturer": To load the manufacturer products screen (link value expected to be the `manufacturer_id`).
+    -   "product": To load the product screen (link value expected to be the `product_id`).
+    -   "list": To load a product listing screen (link value expected to be a query object).
+    -   "category": To load products listing in subcategories (link value expected to be `categoryId`).
+    -   "internal": To load an in-app web view (link value expected to be a URL).
+    -   "external": To load a browser (link value expected to be a URL).
+    -   "copy": To copy something to the clipboard (e.g., "coupon text").
+
+-   **`link_value`**: The specific value or identifier associated with the `link_type`, depending on the selected type.
 
 Example Usage:
 
 ```json
 {
-  "type": "timer",
-  "datetime": "2023-08-25 23:25",
-  "titleStringKey": "ramadanOffer",
-  "navTitleStringKey": "ramadanOfferTitle",
-  "image": "https://rahatystore.matjrah.store/images/1419/image/catalog/2023/web%20banners/1672664683-1.gif",
-  "imageWidthRatio": 0.9,
-  "imageHeightRatio": 0.5,
-  "colors": {
-    "background": "#451458",
-    "time_text": "#00207c",
-    "title": {
-      "text": "#00207c",
-      "background": "#451458"
-    },
-    "subtitle": {
-      "text": "#00207c",
-      "background": "#451458"
-    }
-  },
-  "link_type": "home",
-  "link_value": []
+	"type": "timer",
+	"datetime": "2023-08-25 23:25",
+	"titleStringKey": "ramadanOffer",
+	"navTitleStringKey": "ramadanOfferTitle",
+	"image": "https://rahatystore.matjrah.store/images/1419/image/catalog/2023/web%20banners/1672664683-1.gif",
+	"imageWidthRatio": 0.9,
+	"imageHeightRatio": 0.5,
+	"colors": {
+		"background": "#451458",
+		"time_text": "#00207c",
+		"title": {
+			"text": "#00207c",
+			"background": "#451458"
+		},
+		"subtitle": {
+			"text": "#00207c",
+			"background": "#451458"
+		}
+	},
+	"link_type": "home",
+	"link_value": []
 }
 ```
 
@@ -575,43 +576,44 @@ Example Usage:
 
 The "Home Announcer" section is used to display an announcement message on the home screen, providing important information or updates to users.
 
-- **`type`**: The type of section, which is "announce."
+-   **`type`**: The type of section, which is "announce."
 
-- **`stringKey`**: A string representing the key for the associated text content. This key should have corresponding values in the `language.variableStrings` object for language localization.
+-   **`stringKey`**: A string representing the key for the associated text content. This key should have corresponding values in the `language.variableStrings` object for language localization.
 
-- **`iconKey`**: A unique key that represents the icon associated with the announcement. You can use this key to fetch the icon's URL from the "rImages" object.
+-   **`iconKey`**: A unique key that represents the icon associated with the announcement. You can use this key to fetch the icon's URL from the "rImages" object.
 
-- **`colors`**: Define the color scheme for the announcer, including background colors, text colors, and icon tint.
+-   **`colors`**: Define the color scheme for the announcer, including background colors, text colors, and icon tint.
 
-- **`title`**: The title of the screen, web view, or product listing that is navigated to when the user interacts with the announcer.
+-   **`title`**: The title of the screen, web view, or product listing that is navigated to when the user interacts with the announcer.
 
-- **`link_type`**: The type of action or content that the announcer is linked to. Specify one of the following values:
-  - "home": To load a custom screen (link value expected to be a full home configuration).
-  - "manufacturer": To load the manufacturer products screen (link value expected to be the `manufacturer_id`).
-  - "product": To load the product screen (link value expected to be the `product_id`).
-  - "list": To load a product listing screen (link value expected to be a query object).
-  - "category": To load products listing in subcategories (link value expected to be `categoryId`).
-  - "internal": To load an in-app web view (link value expected to be a URL).
-  - "external": To load a browser (link value expected to be a URL).
-  - "copy": To copy something to the clipboard (e.g., "coupon text").
+-   **`link_type`**: The type of action or content that the announcer is linked to. Specify one of the following values:
 
-- **`link_value`**: The specific value or identifier associated with the `link_type`, depending on the selected type.
+    -   "home": To load a custom screen (link value expected to be a full home configuration).
+    -   "manufacturer": To load the manufacturer products screen (link value expected to be the `manufacturer_id`).
+    -   "product": To load the product screen (link value expected to be the `product_id`).
+    -   "list": To load a product listing screen (link value expected to be a query object).
+    -   "category": To load products listing in subcategories (link value expected to be `categoryId`).
+    -   "internal": To load an in-app web view (link value expected to be a URL).
+    -   "external": To load a browser (link value expected to be a URL).
+    -   "copy": To copy something to the clipboard (e.g., "coupon text").
+
+-   **`link_value`**: The specific value or identifier associated with the `link_type`, depending on the selected type.
 
 Example Usage:
 
 ```json
 {
-  "type": "announce",
-  "stringKey": "announceMessage",
-  "iconKey": "heart",
-  "colors": {
-    "background": "green",
-    "text": "cyan",
-    "iconTint": "blue"
-  },
-  "title": "123",
-  "link_type": "home",
-  "link_value": []
+	"type": "announce",
+	"stringKey": "announceMessage",
+	"iconKey": "heart",
+	"colors": {
+		"background": "green",
+		"text": "cyan",
+		"iconTint": "blue"
+	},
+	"title": "123",
+	"link_type": "home",
+	"link_value": []
 }
 ```
 
@@ -619,40 +621,41 @@ Example Usage:
 
 The "Product Section" is a versatile section designed to showcase a collection of products based on customizable criteria.
 
-- **`stringKey`**: A string representing the key for the associated text content. This key should have corresponding values in the `language.variableStrings` object for language localization.
+-   **`stringKey`**: A string representing the key for the associated text content. This key should have corresponding values in the `language.variableStrings` object for language localization.
 
-- **`iconKey`**: A unique key that represents the icon associated with the product section. You can use this key to fetch the icon's URL from the "rImages" object.
+-   **`iconKey`**: A unique key that represents the icon associated with the product section. You can use this key to fetch the icon's URL from the "rImages" object.
 
-- **`style`**: The style of the product section, which can be one of the following:
-  - "basic": A basic style.
-  - "top": A top-aligned style.
-  - "start": A start-aligned style.
-  - "center": A center-aligned style.
+-   **`style`**: The style of the product section, which can be one of the following:
 
-- **`colors`**: Define the color scheme for the product section, including primary and secondary colors.
+    -   "basic": A basic style.
+    -   "top": A top-aligned style.
+    -   "start": A start-aligned style.
+    -   "center": A center-aligned style.
 
-- **`isGrid`**: A boolean value to determine whether the product display is in a grid format (true) or not (false).
+-   **`colors`**: Define the color scheme for the product section, including primary and secondary colors.
 
-- **`limit`**: The maximum number of products to display in the section.
+-   **`isGrid`**: A boolean value to determine whether the product display is in a grid format (true) or not (false).
 
-- **`query`**: A query object used to customize the criteria for product selection. The `query` object can include filters, sorting options, and other parameters.
+-   **`limit`**: The maximum number of products to display in the section.
+
+-   **`query`**: A query object used to customize the criteria for product selection. The `query` object can include filters, sorting options, and other parameters.
 
 Example Usage:
 
 ```json
 {
-  "stringKey": "lastPiece",
-  "iconKey": "star",
-  "style": "center",
-  "colors": {
-    "primary": "purple",
-    "secondary": "purple"
-  },
-  "isGrid": true,
-  "limit": 10,
-  "query": {
-    // Customize the query object to filter, sort, and select products as needed.
-  }
+	"stringKey": "lastPiece",
+	"iconKey": "star",
+	"style": "center",
+	"colors": {
+		"primary": "purple",
+		"secondary": "purple"
+	},
+	"isGrid": true,
+	"limit": 10,
+	"query": {
+		// Customize the query object to filter, sort, and select products as needed.
+	}
 }
 ```
 
@@ -660,56 +663,59 @@ Example Usage:
 
 The "Banner Section" is designed to display a collection of banners, which can be used for various promotional purposes.
 
-- **`banner_id`**: A unique identifier for the banner section.
+-   **`banner_id`**: A unique identifier for the banner section.
 
-- **`displayAs`**: The display style of the banners, which can be one of the following:
-  - "carousel": Banners are displayed in a carousel.
-  - "row": Banners are displayed in a row.
-  - "scroll": Banners are displayed with horizontal scrolling.
+-   **`displayAs`**: The display style of the banners, which can be one of the following:
 
-- **`data`**: Contains an array of banner objects with details for each banner. Each banner includes the following properties:
-  - **`title`**: The title of the screen opened after pressing the banner.
-  - **`link_type`**: The type of link associated with the banner (e.g., "product," "category," "external," etc.).
-  - **`link_value`**: The value associated with the link type (e.g., product ID, category ID, URL, etc.).
-  - **`image`**: The URL of the banner image.
+    -   "carousel": Banners are displayed in a carousel.
+    -   "row": Banners are displayed in a row.
+    -   "scroll": Banners are displayed with horizontal scrolling.
 
-- **`showSwiperIndex`**: A boolean value indicating whether to display the index of the current banner in a swiper component.
+-   **`data`**: Contains an array of banner objects with details for each banner. Each banner includes the following properties:
 
-- **`ratio`**: The height ratio of the banner. A value of 1 represents a square banner, while other values adjust the banner's height accordingly.
+    -   **`title`**: The title of the screen opened after pressing the banner.
+    -   **`link_type`**: The type of link associated with the banner (e.g., "product," "category," "external," etc.).
+    -   **`link_value`**: The value associated with the link type (e.g., product ID, category ID, URL, etc.).
+    -   **`image`**: The URL of the banner image.
 
-- **`resizeMode`**: The image resizing mode, which can be one of the following:
-  - "cover": The image covers the entire banner area, possibly cropping parts.
-  - "contain": The image fits within the banner area without cropping.
+-   **`showSwiperIndex`**: A boolean value indicating whether to display the index of the current banner in a swiper component.
 
-- **`justifyContent`**: The horizontal alignment of the banner within its container. It can be set to "center" to center-align the banner horizontally.
+-   **`ratio`**: The height ratio of the banner. A value of 1 represents a square banner, while other values adjust the banner's height accordingly.
 
-- **`widthRatio`**: The width ratio of the banner, which determines the width of the banner as a percentage of the screen width.
+-   **`resizeMode`**: The image resizing mode, which can be one of the following:
 
-- **`marginVertical`**: The vertical margin or spacing around the banner.
+    -   "cover": The image covers the entire banner area, possibly cropping parts.
+    -   "contain": The image fits within the banner area without cropping.
+
+-   **`justifyContent`**: The horizontal alignment of the banner within its container. It can be set to "center" to center-align the banner horizontally.
+
+-   **`widthRatio`**: The width ratio of the banner, which determines the width of the banner as a percentage of the screen width.
+
+-   **`marginVertical`**: The vertical margin or spacing around the banner.
 
 Example Usage:
 
 ```json
 {
-  "banner_id": "static",
-  "displayAs": "row",
-  "data": {
-    "banners": [
-      {
-        "title": "",
-        "link_type": "",
-        "link_value": "",
-        "image": "https://matjrah-app.store/images/1233/image/cache/catalog/1667402811-BA09956D-5A25-4167-90ED-856D1932EF5C-max-375.jpeg"
-      },
-      // Additional banners here...
-    ],
-    "showSwiperIndex": true,
-    "ratio": 1,
-  },
-  "resizeMode": "contain",
-  "justifyContent": "center",
-  "widthRatio": 0.95,
-  "marginVertical": 12
+	"banner_id": "static",
+	"displayAs": "row",
+	"data": {
+		"banners": [
+			{
+				"title": "",
+				"link_type": "",
+				"link_value": "",
+				"image": "https://matjrah-app.store/images/1233/image/cache/catalog/1667402811-BA09956D-5A25-4167-90ED-856D1932EF5C-max-375.jpeg"
+			}
+			// Additional banners here...
+		],
+		"showSwiperIndex": true,
+		"ratio": 1
+	},
+	"resizeMode": "contain",
+	"justifyContent": "center",
+	"widthRatio": 0.95,
+	"marginVertical": 12
 }
 ```
 
@@ -719,76 +725,74 @@ The "story" section is used to define a collection of images or videos presented
 
 #### Structure
 
-- **type**: Specifies that this is a "story" section.
-- **data**: An array of story items, each representing a separate story.
-  - **id**: A unique identifier for the story.
-  - **image**: The cover image for the story, typically displayed as a thumbnail or introductory image.
-  - **name**: A name or title for the story, which may provide context or a brief description.
-  - **duration**: The default duration (in seconds) for all stories inside this section. This duration determines how long each image or video is displayed in the story.
-  - **is_special**: Indicates if the story is special or featured. Special stories might be highlighted or treated differently within the app.
-  - **images**: An array of images or videos within the story, creating a sequence of content.
-    - **image**: URL for an image in the story, which is typically a static image.
-    - **video**: URL for a video in the story, allowing the inclusion of multimedia elements.
-    - **duration**: Custom duration (in seconds) for the individual media item. This can override the default duration for specific images or videos.
-    - **link_type**: Specifies the type of link for the image or video, such as "product," "internal," "external," or "copy."
-    - **link_value**: Provides the value associated with the link type, which might be a product ID, a URL, or other relevant information.
+-   **type**: Specifies that this is a "story" section.
+-   **data**: An array of story items, each representing a separate story.
+    -   **id**: A unique identifier for the story.
+    -   **image**: The cover image for the story, typically displayed as a thumbnail or introductory image.
+    -   **name**: A name or title for the story, which may provide context or a brief description.
+    -   **duration**: The default duration (in seconds) for all stories inside this section. This duration determines how long each image or video is displayed in the story.
+    -   **is_special**: Indicates if the story is special or featured. Special stories might be highlighted or treated differently within the app.
+    -   **images**: An array of images or videos within the story, creating a sequence of content.
+        -   **image**: URL for an image in the story, which is typically a static image.
+        -   **video**: URL for a video in the story, allowing the inclusion of multimedia elements.
+        -   **duration**: Custom duration (in seconds) for the individual media item. This can override the default duration for specific images or videos.
+        -   **link_type**: Specifies the type of link for the image or video, such as "product," "internal," "external," or "copy."
+        -   **link_value**: Provides the value associated with the link type, which might be a product ID, a URL, or other relevant information.
 
 Example Usage:
 
 ```json
 {
-  "type": "story",
-  "data": [
-    {
-      "id": 1,
-      "image": "https://example.com/story1_cover.jpg",
-      "name": "Story 1",
-      "duration": 10,
-      "is_special": true,
-      "images": [
-        {
-          "image": "https://example.com/story1_image1.jpg",
-          "duration": 15,
-          "link_type": "product",
-          "link_value": 9029
-        },
-        {
-          "video": "https://example.com/story1_video1.mp4",
-          "duration": 30,
-          "link_type": "internal",
-          "link_value": "https://example.com/internal-page"
-        },
-        {
-          "image": "https://example.com/story1_image2.jpg",
-          "duration": 8,
-          "link_type": "external",
-          "link_value": "https://example.com/external-link"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "image": "https://example.com/story2_cover.jpg",
-      "name": "Story 2",
-      "duration": 12,
-      "images": [
-        {
-          "image": "https://example.com/story2_image1.jpg",
-          "link_type": "product",
-          "link_value": 9030
-        },
-        {
-          "image": "https://example.com/story2_image2.jpg",
-          "link_type": "copy",
-          "link_value": "ABC123"
-        }
-      ]
-    }
-  ]
+	"type": "story",
+	"data": [
+		{
+			"id": 1,
+			"image": "https://example.com/story1_cover.jpg",
+			"name": "Story 1",
+			"duration": 10,
+			"is_special": true,
+			"images": [
+				{
+					"image": "https://example.com/story1_image1.jpg",
+					"duration": 15,
+					"link_type": "product",
+					"link_value": 9029
+				},
+				{
+					"video": "https://example.com/story1_video1.mp4",
+					"duration": 30,
+					"link_type": "internal",
+					"link_value": "https://example.com/internal-page"
+				},
+				{
+					"image": "https://example.com/story1_image2.jpg",
+					"duration": 8,
+					"link_type": "external",
+					"link_value": "https://example.com/external-link"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"image": "https://example.com/story2_cover.jpg",
+			"name": "Story 2",
+			"duration": 12,
+			"images": [
+				{
+					"image": "https://example.com/story2_image1.jpg",
+					"link_type": "product",
+					"link_value": 9030
+				},
+				{
+					"image": "https://example.com/story2_image2.jpg",
+					"link_type": "copy",
+					"link_value": "ABC123"
+				}
+			]
+		}
+	]
 }
-
 ```
-
 
 ## `infoData`
 
@@ -798,21 +802,21 @@ The `infoData` key is an array of objects that are used to define various inform
 
 Each object within the `infoData` array has the following possible properties:
 
-- **`stringKey`**: A string representing the key for the associated text content. This key should have corresponding values in the `language.variableStrings` object for language localization.
+-   **`stringKey`**: A string representing the key for the associated text content. This key should have corresponding values in the `language.variableStrings` object for language localization.
 
-- **`iconKey`**: A string indicating the key for the associated icon. This key is typically used to reference icons from the `rImages` object.
+-   **`iconKey`**: A string indicating the key for the associated icon. This key is typically used to reference icons from the `rImages` object.
 
-- **`id`**: An identifier for the information page that should be loaded when the user presses the element. This `id` corresponds to a specific information page.
+-   **`id`**: An identifier for the information page that should be loaded when the user presses the element. This `id` corresponds to a specific information page.
 
-- **`path`**: Specifies the internal URL path. When used, it opens the specified path in a WebView, typically constructed as `baseURL/path`.
+-   **`path`**: Specifies the internal URL path. When used, it opens the specified path in a WebView, typically constructed as `baseURL/path`.
 
-- **`url`**: Specifies an external URL. When used, it opens the provided URL in an external browser.
+-   **`url`**: Specifies an external URL. When used, it opens the provided URL in an external browser.
 
-- **`onPress`**: A predefined action for the button. Possible values include "share" or "social," indicating specific actions to be performed when the button is pressed.
+-   **`onPress`**: A predefined action for the button. Possible values include "share" or "social," indicating specific actions to be performed when the button is pressed.
 
-- **`hideArrow`**: A boolean value that determines whether to hide an arrow or indicator associated with the element.
+-   **`hideArrow`**: A boolean value that determines whether to hide an arrow or indicator associated with the element.
 
-- **`type`**: For separators, it specifies the type as "separator."
+-   **`type`**: For separators, it specifies the type as "separator."
 
 ### Example Usage
 
@@ -934,39 +938,42 @@ The `zImagesQuality` key defines image quality settings specific to the `Zid` pl
 
 ### Characteristics
 
-- **Platform**: The `zImagesQuality` object is intended for use when the platform is set to `Zid`.
+-   **Platform**: The `zImagesQuality` object is intended for use when the platform is set to `Zid`.
 
-- **Values**: Each key within the `zImagesQuality` object corresponds to a specific area of the application, and its value indicates the desired image quality for that area. The available options for image quality include:
+-   **Values**: Each key within the `zImagesQuality` object corresponds to a specific area of the application, and its value indicates the desired image quality for that area. The available options for image quality include:
 
 ### Available Options
 
-- `productCard`: Specifies the image quality for product card images. This key can take one of the following values:
-  - `full_size`
-  - `large`
-  - `medium`
-  - `thumbnail`
-  - `small`
+-   `productCard`: Specifies the image quality for product card images. This key can take one of the following values:
 
-- `productDetails`: Specifies the image quality for product details images. This key can take one of the following values:
-  - `full_size`
-  - `large`
-  - `medium`
-  - `thumbnail`
-  - `small`
+    -   `full_size`
+    -   `large`
+    -   `medium`
+    -   `thumbnail`
+    -   `small`
 
-- `cart`: Specifies the image quality for cart-related images. This key can take one of the following values:
-  - `fullSize`
-  - `large`
-  - `medium`
-  - `thumbnail`
-  - `small`
+-   `productDetails`: Specifies the image quality for product details images. This key can take one of the following values:
 
-- `orderDetails`: Specifies the image quality for order details-related images. This key can take one of the following values:
-  - `fullSize`
-  - `large`
-  - `medium`
-  - `thumbnail`
-  - `small`
+    -   `full_size`
+    -   `large`
+    -   `medium`
+    -   `thumbnail`
+    -   `small`
+
+-   `cart`: Specifies the image quality for cart-related images. This key can take one of the following values:
+
+    -   `fullSize`
+    -   `large`
+    -   `medium`
+    -   `thumbnail`
+    -   `small`
+
+-   `orderDetails`: Specifies the image quality for order details-related images. This key can take one of the following values:
+    -   `fullSize`
+    -   `large`
+    -   `medium`
+    -   `thumbnail`
+    -   `small`
 
 ### Example Usage
 
@@ -978,6 +985,7 @@ The `zImagesQuality` key defines image quality settings specific to the `Zid` pl
   "orderDetails": "medium", // medium
 }
 ```
+
 ```json
 "zImagesQuality": {
   "productCard": "small", // fullSize | large | medium | thumbnail | small
@@ -986,3 +994,82 @@ The `zImagesQuality` key defines image quality settings specific to the `Zid` pl
   "orderDetails": "fullSize" // fullSize | large | medium | thumbnail | small
 }
 ```
+
+**Query Object:**
+
+The `query` object is used to filter and sort product listings in various sections of the app. It allows you to customize and refine the displayed products.
+
+-   **filters**: An array of filter objects that define conditions to narrow down the product listings.
+
+    -   **Field**: The field on which you want to apply the filter, such as `category`, `quantity`, `price`, etc.
+
+    -   **Operand**: The comparison operator used to define the filter condition. Supported operators include `=`, `!=`, `<>`, `>`, `<`, `>=`, `<=`, `!<`, `!>`, `IN`, and `LIKE`.
+
+    -   **Value**: The value to compare against. The specific value depends on the field and operand used. For example, for a `category` filter, the value would be a category ID.
+
+-   **sort**: The field by which to sort the product listings.
+
+-   **order**: The order type for sorting, which can be either `ASC` (ascending) or `DESC` (descending).
+
+**Examples:**
+
+1. Filter products where the price is greater than or equal to 10 and the manufacturer is in a list of manufacturer IDs:
+
+    ```json
+    {
+    	"sort": "quantity",
+    	"order": "asc",
+    	"filters": [
+    		{
+    			"field": "price",
+    			"operand": ">=",
+    			"value": "10"
+    		},
+    		{
+    			"field": "manufacturer",
+    			"operand": "IN",
+    			"logical_operand": "AND",
+    			"value": [1, 2, 3]
+    		}
+    	]
+    }
+    ```
+
+2. Filter products where the name contains "apple":
+
+```json
+{
+	"sort": "name",
+	"order": "ASC",
+	"filters": [
+		{
+			"field": "name",
+			"operand": "LIKE",
+			"value": "apple"
+		}
+	]
+}
+```
+
+3. Filter products where the quantity is greater than 20 and the category matches a specific category ID:
+
+```json
+{
+    "sort": "quantity",
+    "order": "ASC",
+    "filters": [
+        {
+            "field": "quantity",
+            "operand": ">",
+            "value": "20"
+        },
+        {
+            "field": "category",
+            "operand": "=",
+            "value": "123"
+        }
+    ]
+}
+
+```
+> Note: You can combine multiple filters and logical operands to create more complex queries for customizing product listings.
