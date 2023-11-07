@@ -149,7 +149,7 @@ Each object within the `quickActions` array has the following sub-elements:
     -   `orders`: Opens the orders screen.
     -   `cart`: Opens the shopping cart.
     -   `product:9044`: Opens the product screen and attempts to load the product with the specified ID (replace `9044` with the actual product identifier).
-    -   `query:{}`: Opens the products listing screen and performs a product search based on the provided query object (if applicable).
+    -   `query:{}`: Opens the products listing screen and performs a product search based on the provided [query object](##QueryObject) (if applicable).
 
 -   **`icon`**: The icon associated with the quick action. It should be one of the following enum values:
 
@@ -489,7 +489,7 @@ The "Popup" section is used to display a popup image in a modal when the app sta
     -   "home": To load a custom screen (link value expected to be a full home configuration).
     -   "manufacturer": To load the manufacturer products screen (link value expected to be the `manufacturer_id`).
     -   "product": To load the product screen (link value expected to be the `product_id`).
-    -   "list": To load a product listing screen (link value expected to be a query object).
+    -   "list": To load a product listing screen (link value expected to be a [query object](##QueryObject)).
     -   "category": To load products listing in subcategories (link value expected to be `categoryId`).
     -   "internal": To load an in-app web view (link value expected to be a URL).
     -   "external": To load a browser (link value expected to be a URL).
@@ -536,7 +536,7 @@ The "Timer" section is used to display a countdown timer for a sale event. Users
     -   "home": To load a custom screen (link value expected to be a full home configuration).
     -   "manufacturer": To load the manufacturer products screen (link value expected to be the `manufacturer_id`).
     -   "product": To load the product screen (link value expected to be the `product_id`).
-    -   "list": To load a product listing screen (link value expected to be a query object).
+    -   "list": To load a product listing screen (link value expected to be a [query object](##QueryObject)).
     -   "category": To load products listing in subcategories (link value expected to be `categoryId`).
     -   "internal": To load an in-app web view (link value expected to be a URL).
     -   "external": To load a browser (link value expected to be a URL).
@@ -591,7 +591,7 @@ The "Home Announcer" section is used to display an announcement message on the h
     -   "home": To load a custom screen (link value expected to be a full home configuration).
     -   "manufacturer": To load the manufacturer products screen (link value expected to be the `manufacturer_id`).
     -   "product": To load the product screen (link value expected to be the `product_id`).
-    -   "list": To load a product listing screen (link value expected to be a query object).
+    -   "list": To load a product listing screen (link value expected to be a [query object](##QueryObject)).
     -   "category": To load products listing in subcategories (link value expected to be `categoryId`).
     -   "internal": To load an in-app web view (link value expected to be a URL).
     -   "external": To load a browser (link value expected to be a URL).
@@ -638,7 +638,7 @@ The "Product Section" is a versatile section designed to showcase a collection o
 
 -   **`limit`**: The maximum number of products to display in the section.
 
--   **`query`**: A query object used to customize the criteria for product selection. The `query` object can include filters, sorting options, and other parameters.
+-   **`query`**: A query object used to customize the criteria for product selection. The [query object](##QueryObject) can include filters, sorting options, and other parameters.
 
 Example Usage:
 
@@ -995,7 +995,7 @@ The `zImagesQuality` key defines image quality settings specific to the `Zid` pl
 }
 ```
 
-**Query Object:**
+## `QueryObject`
 
 The `query` object is used to filter and sort product listings in various sections of the app. It allows you to customize and refine the displayed products.
 
