@@ -65,31 +65,31 @@ Example Usage:
 
 ## `imageQualityFactors`
 
-The `imageQualityFactors` key is used to adjust the requested image quality from the Majtrah API for different types of images in the application. These factors allow you to control the level of image quality for specific image categories by multiplying them with the requested image dimensions.
+The `imageQualityFactors` key allows you to control the quality of images used in various parts of the application. The value for each factor can be adjusted to control image quality. The scale for these factors represents the level of quality, where 1.0 represents normal image quality. Values above 1.0 increase quality, and values below 1.0 decrease quality.
 
-### Sub-Elements
+Please note that these quality factors are primarily related to Matjrah API requests and are specifically applicable when the platform is set to "matjrah."
 
--   **`cart`**: Quality factor for cart-related images.
--   **`banners`**: Quality factor for banner images.
--   **`brands`**: Quality factor for brand-related images.
--   **`categories`**: Quality factor for category images.
--   **`productCard`**: Quality factor for product card images.
--   **`productDetails`**: Quality factor for product details images.
--   **`featuredCategories`**: Quality factor for featured category images.
+### Factors
 
-The quality factor values range from 0 to 1, with 1 representing the highest image quality. Increasing these values will result in higher image quality when requesting images from the Majtrah API.
+- **`cart`**: A factor affecting the image quality for cart-related images.
+- **`banners`**: A factor affecting the image quality for banners.
+- **`brands`**: A factor affecting the image quality for brand-related images.
+- **`categories`**: A factor affecting the image quality for category-related images.
+- **`productCard`**: A factor affecting the image quality for product card images.
+- **`productDetails`**: A factor affecting the image quality for product details images.
+- **`featuredCategories`**: A factor affecting the image quality for featured category images.
 
-Example Usage:
+### Example Usage
 
 ```json
 "imageQualityFactors": {
-  "cart": 1,
-  "banners": 1,
-  "brands": 1,
-  "categories": 1,
-  "productCard": 1,
-  "productDetails": 1,
-  "featuredCategories": 1
+    "cart": 2.0, // 100% extra quality
+    "banners": 1.0, // Normal quality
+    "brands": 0.5, // 50% less quality
+    "categories": 1.5, // 50% extra quality
+    "productCard": 1.0, // Normal quality
+    "productDetails": 1.2, // 20% extra quality
+    "featuredCategories": 1.0 // Normal quality
 }
 ```
 
@@ -160,8 +160,10 @@ Each object within the `quickActions` array has the following sub-elements:
     -   `product`
     -   `query`
 
--   **`titleStringKey`**: A string identifier for the title of the quick action.
--   **`subtitleStringKey`**: A string identifier for the subtitle of the quick action.
+- **`titleStringKey`**: A string identifier for the title of the quick action. This string identifier can be set in the `language.variableStrings` object for different languages, allowing you to customize the title text based on the selected language.
+
+- **`subtitleStringKey`**: A string identifier for the subtitle of the quick action. Similar to the `titleStringKey`, this string identifier can be set in the `language.variableStrings` object for different languages, enabling you to customize the subtitle text based on the selected language.
+
 
 ### Example Usage
 
@@ -370,7 +372,145 @@ The `language` key allows you to configure language-related settings and provide
 
 ## `homeSections`
 
-<!-- Explanation for the homeSections key -->
+The `homeSections` key represents an array of tabbed sections on the home screen, each with its own title and content sections.
+
+- Each tab is defined as an object with the following properties:
+
+  - **`stringKey`**: A string identifier for the tab's title. You can set the value for different languages using the `language.variableStrings` object.
+
+  - **`sections`**: An array of elements that make up the content of the tab. These elements can include various section types, each with its own configuration.
+
+### Example Usage
+
+```json
+"homeSections": [
+  {
+    "stringKey": "tabTitleStringKey1",
+    "sections": [
+      // Sections for the first tab
+    ]
+  },
+  {
+    "stringKey": "tabTitleStringKey2",
+    "sections": [
+      // Sections for the second tab
+    ]
+  }
+]
+```
+
+### Separator Section
+
+The "Separator" section is used to add a visual separator within a tab of the home screen.
+
+- **`type`**: The type of section, which is "separator."
+
+- **`stringKey`**: A string identifier for the separator section's title. You can set the value for different languages using the `language.variableStrings` object.
+
+- **`iconKey`**: A string identifier for the icon used in the separator section. You can reference icons from the `rImages` object.
+
+- **`style`**: The style of the separator. You can customize its alignment, and the available options are "basic," "top," "start," or "center."
+
+- **`colors`**: A set of colors for the separator. Customize the primary and secondary colors, using either named colors or hash values.
+
+Example Usage:
+
+```json
+{
+  "type": "separator",
+  "stringKey": "separatorTitleStringKey",
+  "iconKey": "separatorIcon",
+  "style": "center",
+  "colors": {
+    "primary": "blue", // or "#0000FF"
+    "secondary": "green" // or "#008000"
+  }
+}
+```
+
+### Featured Categories Section
+
+The "Featured Categories" section is used to display a set of featured categories within a tab on the home screen.
+
+- **`type`**: The type of section, which is "featured_categories."
+
+- **`style`**: The style of the featured categories. You can choose from different styles, including "square," "circle," "rectlight," or "rectdark."
+
+- **`direction`**: The direction in which the featured categories are displayed. You can set it as "column" or "row" to control the layout.
+
+- **Data Source**: Choose one of the following options to define the source of featured categories:
+
+  - **`parent`**: Use the `parent` property to show the children of a specific parent category identified by its ID.
+
+  - **`ids`**: Provide an array of category IDs to specify which categories should be displayed as featured.
+
+  - **`level`**: Set the `level` property to determine the level of categories to be shown as featured.
+
+Examples Usage:
+
+```json
+{
+  "type": "featured_categories",
+  "style": "rectdark",
+  "direction": "row",
+  "parent": 103
+}
+// OR
+{
+  "type": "featured_categories",
+  "style": "circle",
+  "direction": "column",
+  "ids": [23, 123, 421]
+}
+// OR
+{
+  "type": "featured_categories",
+  "style": "rectlight",
+  "direction": "row",
+  "level": 1
+}
+```
+
+### Popup Section
+
+The "Popup" section is used to display a popup image in a modal when the app starts up, and a specific tab on the home screen is selected. This popup can be linked to various actions or content.
+
+- **`type`**: The type of section, which is "popup."
+
+- **`id`**: An identifier used in preventing the display of the same popup locally. This value helps ensure that the same popup is not shown repeatedly to users.
+
+- **`hours`**: The number of hours to hide the popup for after it is shown. Users will not see the popup again within this time frame.
+
+- **`imageHeightRatio`**: The height ratio of the popup image. A value of 1 indicates a square image. Adjust this value to control the image's aspect ratio.
+
+- **`image`**: The URL of the popup image that will be displayed in the modal.
+
+- **`link_type`**: The type of action or content that the popup is linked to. Possible values include:
+  - "home": To load a custom screen (link value expected to be a full home configuration).
+  - "manufacturer": To load the manufacturer products screen (link value expected to be the `manufacturer_id`).
+  - "product": To load the product screen (link value expected to be the `product_id`).
+  - "list": To load a product listing screen (link value expected to be a query object).
+  - "category": To load products listing in subcategories (link value expected to be `categoryId`).
+  - "internal": To load an in-app web view (link value expected to be a URL).
+  - "external": To load a browser (link value expected to be a URL).
+  - "copy": To copy something to the clipboard (e.g., "coupon text").
+
+- **`link_value`**: The specific value or identifier associated with the `link_type`, depending on the selected type.
+
+Example Usage:
+
+```json
+{
+  "type": "popup",
+  "id": 234,
+  "hours": 24,
+  "imageHeightRatio": 0.75,
+  "image": "https://assets.matjrah.store/images/1339/image/cache/catalog/1677055847-mBNlFGQZaRhXmQKGJHFHfWMAa7TWhOrvnBN6KmbN-max-828.jpg",
+  "link_type": "product",
+  "link_value": 9029
+}
+```
+
 
 ## `infoData`
 
