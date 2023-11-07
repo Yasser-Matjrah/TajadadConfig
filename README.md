@@ -668,7 +668,7 @@ The "Banner Section" is designed to display a collection of banners, which can b
   - "scroll": Banners are displayed with horizontal scrolling.
 
 - **`data`**: Contains an array of banner objects with details for each banner. Each banner includes the following properties:
-  - **`title`**: The title of the banner.
+  - **`title`**: The title of the screen opened after pressing the banner.
   - **`link_type`**: The type of link associated with the banner (e.g., "product," "category," "external," etc.).
   - **`link_value`**: The value associated with the link type (e.g., product ID, category ID, URL, etc.).
   - **`image`**: The URL of the banner image.
