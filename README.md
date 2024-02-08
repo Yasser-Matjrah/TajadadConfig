@@ -1072,4 +1072,53 @@ The `query` object is used to filter and sort product listings in various sectio
 }
 
 ```
+
+4. Common Used Queries:
+
+```json
+[
+    {
+        "sort": "date_added",
+        "order": "DESC"
+    },
+    {
+        "sort": "price",
+        "order": "ASC",
+        "filters": [
+            {
+                "field": "price",
+                "value": "99",
+                "operand": "<"
+            }
+        ]
+    },
+    {
+        "filters": [
+            {
+                "field": "category",
+                "value": 542,
+                "operand": "="
+            }
+        ]
+    },
+    {
+        "sort": "most_popular",
+        "order": "DESC"
+    },
+    {
+        "sort": "date_added",
+        "order": "DESC",
+        "filters": [
+            {
+                "field": "discounted",
+                "operand": "=",
+                "value": true
+            }
+        ]
+    },
+    {
+        "sort": "random"
+    }
+]
+```
 > Note: You can combine multiple filters and logical operands to create more complex queries for customizing product listings.
