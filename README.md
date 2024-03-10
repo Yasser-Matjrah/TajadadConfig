@@ -20,6 +20,7 @@ This documentation provides details about the JSON configuration for your applic
 14. [rImages](#rimages)
 15. [zCountriesOTP](#zcountriesotp)
 16. [zImagesQuality](#zimagesquality)
+17. [radiusValues](#radiusvalues)
 
 ## `oneSignal`
 
@@ -994,6 +995,34 @@ The `zImagesQuality` key defines image quality settings specific to the `Zid` pl
   "orderDetails": "fullSize" // fullSize | large | medium | thumbnail | small
 }
 ```
+
+
+## `radiusValues`
+
+The `radiusValues` key defines border radius values around the app.
+
+### Available Options
+
+-   `button`: controll all buttons' border radius accross the app, set to `0` or remove the key to use the default value, set to `0.00001` for sharp border radius, and set to `999` to pill border radius
+
+
+### Example Usage
+
+```json
+"radiusValues": {
+    "button": 0, 
+		"brand": 0,
+		"hBanners": 0,
+		"hCategory": 0,
+		"cartCard": 0,
+		"cartRewards": 0,
+		"categoryCard": 0,
+		"cartCopoun": 0,
+		"producCard": 0,
+		"input": 0
+}
+```
+
 
 ## `QueryObject`
 
