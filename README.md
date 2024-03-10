@@ -1010,16 +1010,16 @@ The `radiusValues` key defines border radius values around the app.
 
 ```json
 "radiusValues": {
-    "button": 0, 
-		"brand": 0,
-		"hBanners": 0,
-		"hCategory": 0,
-		"cartCard": 0,
-		"cartRewards": 0,
-		"categoryCard": 0,
-		"cartCopoun": 0,
-		"producCard": 0,
-		"input": 0
+  "button": 0, 
+  "brand": 0,
+  "hBanners": 0,
+  "hCategory": 0,
+  "cartCard": 0,
+  "cartRewards": 0,
+  "categoryCard": 0,
+  "cartCopoun": 0,
+  "producCard": 0,
+  "input": 0
 }
 ```
 
